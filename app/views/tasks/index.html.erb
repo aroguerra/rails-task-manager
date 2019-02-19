@@ -1,0 +1,15 @@
+<h1>My Tasks</h1>
+<ul>
+<% @tasks.each do |task| %>
+  <% if task.completed == true %>
+    <li ><i class="fas fa-check"></i><%= link_to task.title, task %><%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, task_path(task), method: :delete %></li>
+  <% else %>
+    <li ><i class="fas fa-times"></i><%= link_to task.title, task %><%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, task_path(task), method: :delete %></li>
+  <% end %>
+<% end %>
+</ul>
+
+
+<%= link_to "Create New Task", tasks_new_path %>
+
+
